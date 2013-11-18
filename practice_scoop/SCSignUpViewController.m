@@ -43,7 +43,7 @@
 
 - (IBAction)submitButtonAction:(id)sender {
     [self showHUD];
-    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users.json?user[name]=%@&user[phone]=%@&user[password]=%@", self.name.text, self.phone.text, self.password.text] withDelegate:self withMethod:@"POST" withParameters:nil];
+    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users.json?user[name]=%@&user[phone]=%@&user[password]=%@", [self.name.text urlEncodeUsingEncoding:NSUTF8StringEncoding], [self.phone.text urlEncodeUsingEncoding:NSUTF8StringEncoding], [self.password.text urlEncodeUsingEncoding:NSUTF8StringEncoding]] withDelegate:self withMethod:@"POST" withParameters:nil];
     NSLog(@"Request Made");
 }
 
@@ -55,7 +55,7 @@
     NSError *error = nil;
     NSDictionary *resp = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error:&error];
     
-    NSLog(@"%@",resp);
+    NSLog(@"download Finished: %@",resp);
     
     [self analyzeResponse:resp];
     
@@ -64,6 +64,8 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
+    
+    NSLog(@"response: %@", response);
     
 }
 

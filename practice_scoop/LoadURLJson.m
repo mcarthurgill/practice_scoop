@@ -21,7 +21,7 @@
         return nil;
     }
     
-    NSString* baseURL = @"http://www.practice-scoop.com";
+    NSString* baseURL = @"http://practice-scoop.herokuapp.com";
     NSString* baseParameters = @"&sk=foeiuh9q28734gfa9w8hfg92830rq892g0oaw8hf";
     
     LoadURLJson *loadJson = [[self alloc] init];
