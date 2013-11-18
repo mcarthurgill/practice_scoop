@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadURLJson.h"
+#import "MBProgressHUD.h"
 
-@interface SCSignUpViewController : UIViewController
+@interface SCSignUpViewController : UIViewController <LoadJsonDelegate, MBProgressHUDDelegate>
+{
+    LoadURLJson* loadJson;
+    MBProgressHUD* HUD; 
+}
+
+@property (strong, nonatomic) IBOutlet UITextField *name;
+@property (strong, nonatomic) IBOutlet UITextField *phone;
+@property (strong, nonatomic) IBOutlet UITextField *password;
+@property (strong, nonatomic) IBOutlet UIButton *submitButton;
+
+- (IBAction)submitButtonAction:(id)sender;
 
 @end

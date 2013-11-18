@@ -22,6 +22,8 @@
 		764F7E9C183AB634005ABC87 /* practice_scoopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7E9B183AB634005ABC87 /* practice_scoopTests.m */; };
 		764F7EA7183AB6AC005ABC87 /* SCSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EA6183AB6AC005ABC87 /* SCSignUpViewController.m */; };
 		764F7EAE183AB803005ABC87 /* LoadURLJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EAD183AB803005ABC87 /* LoadURLJson.m */; };
+		764F7EB4183ABF83005ABC87 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB1183ABF83005ABC87 /* MBProgressHUD.m */; };
+		764F7EB5183ABF83005ABC87 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		764F7EA6183AB6AC005ABC87 /* SCSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSignUpViewController.m; sourceTree = "<group>"; };
 		764F7EAC183AB803005ABC87 /* LoadURLJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadURLJson.h; sourceTree = "<group>"; };
 		764F7EAD183AB803005ABC87 /* LoadURLJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadURLJson.m; sourceTree = "<group>"; };
+		764F7EB0183ABF83005ABC87 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		764F7EB1183ABF83005ABC87 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		764F7EB2183ABF83005ABC87 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 				764F7EA5183AB6AC005ABC87 /* SCSignUpViewController.h */,
 				764F7EA6183AB6AC005ABC87 /* SCSignUpViewController.m */,
 				764F7E88183AB634005ABC87 /* Images.xcassets */,
+				764F7EAF183ABF50005ABC87 /* helpers */,
 				764F7EA8183AB722005ABC87 /* LoadJSON */,
 				764F7E77183AB634005ABC87 /* Supporting Files */,
 			);
@@ -163,6 +170,17 @@
 				764F7EAD183AB803005ABC87 /* LoadURLJson.m */,
 			);
 			name = LoadJSON;
+			sourceTree = "<group>";
+		};
+		764F7EAF183ABF50005ABC87 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				764F7EB0183ABF83005ABC87 /* MBProgressHUD.h */,
+				764F7EB1183ABF83005ABC87 /* MBProgressHUD.m */,
+				764F7EB2183ABF83005ABC87 /* NSString+URLEncoding.h */,
+				764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */,
+			);
+			name = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764F7EB5183ABF83005ABC87 /* NSString+URLEncoding.m in Sources */,
 				764F7E81183AB634005ABC87 /* SCAppDelegate.m in Sources */,
 				764F7EAE183AB803005ABC87 /* LoadURLJson.m in Sources */,
+				764F7EB4183ABF83005ABC87 /* MBProgressHUD.m in Sources */,
 				764F7E7D183AB634005ABC87 /* main.m in Sources */,
 				764F7EA7183AB6AC005ABC87 /* SCSignUpViewController.m in Sources */,
 			);
@@ -475,6 +495,7 @@
 				764F7EA1183AB634005ABC87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		764F7EA2183AB634005ABC87 /* Build configuration list for PBXNativeTarget "practice_scoopTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +504,7 @@
 				764F7EA4183AB634005ABC87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
