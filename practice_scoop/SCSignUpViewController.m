@@ -8,6 +8,8 @@
 
 #import "SCSignUpViewController.h"
 #import "NSString+URLEncoding.h"
+#import "STSession.h"
+
 
 @interface SCSignUpViewController ()
 
@@ -47,7 +49,6 @@
     NSLog(@"Request Made");
 }
 
-
 - (void)downloadFinished
 {
     NSData *data = [[NSData alloc] initWithData:loadJson.receivedData];
@@ -64,8 +65,8 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
-    
-    NSLog(@"response: %@", response);
+    [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    NSLog(@"response: %@", [[STSession thisSession] loggedInUser]);
     
 }
 

@@ -1,26 +1,23 @@
 //
-//  SCUpdateUserViewController.m
+//  SCUserShowViewController.m
 //  practice_scoop
 //
-//  Created by Joseph McArthur Gill on 11/18/13.
+//  Created by Joseph McArthur Gill on 11/19/13.
 //  Copyright (c) 2013 Joseph McArthur Gill. All rights reserved.
 //
 
-#import "SCUpdateUserViewController.h"
+#import "SCUserShowViewController.h"
 #import "NSString+URLEncoding.h"
-#import "STSession.h"
 
-
-@interface SCUpdateUserViewController ()
+@interface SCUserShowViewController ()
 
 @end
 
-@implementation SCUpdateUserViewController
+@implementation SCUserShowViewController
 
-@synthesize name;
+@synthesize user_id;
 @synthesize password;
-@synthesize phone;
-@synthesize updateButton;
+@synthesize showUserButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users.json?user[name]=mcarthur&user[phone]=3343994374&user[password]=snickers"] withDelegate:self withMethod:@"POST" withParameters:nil];
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,11 +40,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)updateButtonAction:(id)sender {
-    [self showHUD];
-    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users/%@.json?user[name]=%@&user[password]=%@", [[[STSession thisSession] loggedInUser] objectForKey:@"id"], [self.name.text urlEncodeUsingEncoding:NSUTF8StringEncoding], [[[STSession thisSession] loggedInUser] objectForKey:@"password"]] withDelegate:self withMethod:@"PUT" withParameters:nil];
+- (IBAction)showUserAction:(id)sender {
+    //you need to change the ID here to the SCSession object's user's ID
+    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users/%@.json?user[password]=%@", [self.user_id.text urlEncodeUsingEncoding:NSUTF8StringEncoding], [self.password.text urlEncodeUsingEncoding:NSUTF8StringEncoding]] withDelegate:self withMethod:@"GET" withParameters:nil];
     NSLog(@"Request Made");
 }
+
+
 
 
 - (void)downloadFinished
@@ -66,7 +65,7 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
-    [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+
     NSLog(@"response: %@", response);
     
 }
@@ -91,5 +90,7 @@
     [HUD show:NO];
     [HUD removeFromSuperview];
 }
+
+
 
 @end

@@ -1,26 +1,25 @@
 //
-//  SCUpdateUserViewController.m
+//  SCUserGroupsViewController.m
 //  practice_scoop
 //
-//  Created by Joseph McArthur Gill on 11/18/13.
+//  Created by Joseph McArthur Gill on 11/19/13.
 //  Copyright (c) 2013 Joseph McArthur Gill. All rights reserved.
 //
 
-#import "SCUpdateUserViewController.h"
+#import "SCUserGroupsViewController.h"
 #import "NSString+URLEncoding.h"
 #import "STSession.h"
 
 
-@interface SCUpdateUserViewController ()
+@interface SCUserGroupsViewController ()
 
 @end
 
-@implementation SCUpdateUserViewController
+@implementation SCUserGroupsViewController
 
-@synthesize name;
+@synthesize user_id;
 @synthesize password;
-@synthesize phone;
-@synthesize updateButton;
+@synthesize findGroupsButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,11 +42,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)updateButtonAction:(id)sender {
-    [self showHUD];
-    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users/%@.json?user[name]=%@&user[password]=%@", [[[STSession thisSession] loggedInUser] objectForKey:@"id"], [self.name.text urlEncodeUsingEncoding:NSUTF8StringEncoding], [[[STSession thisSession] loggedInUser] objectForKey:@"password"]] withDelegate:self withMethod:@"PUT" withParameters:nil];
+- (IBAction)findGroupsAction:(id)sender {
+    
+    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users/%@/groups.json?user[password]=%@", [[[STSession thisSession] loggedInUser] objectForKey:@"id"], [[[STSession thisSession] loggedInUser] objectForKey:@"password"]] withDelegate:self withMethod:@"GET" withParameters:nil];
     NSLog(@"Request Made");
 }
+
 
 
 - (void)downloadFinished
@@ -66,7 +66,7 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
-    [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    
     NSLog(@"response: %@", response);
     
 }
