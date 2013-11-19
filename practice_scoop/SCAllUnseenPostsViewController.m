@@ -8,6 +8,7 @@
 
 #import "SCAllUnseenPostsViewController.h"
 #import "NSString+URLEncoding.h"
+#import "STSession.h"
 
 @interface SCAllUnseenPostsViewController ()
 
@@ -15,8 +16,6 @@
 
 @implementation SCAllUnseenPostsViewController
 
-@synthesize user_Id;
-@synthesize password;
 @synthesize unseenPostsButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -31,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users.json?user[name]=mcarthur&user[phone]=3343994374&user[password]=snickers"] withDelegate:self withMethod:@"POST" withParameters:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,12 +40,9 @@
 }
 
 - (IBAction)unseenPostsAction:(id)sender {
-    //you need to change the ID here to the SCSession object's user's ID
-    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users/%@/all_unseen_posts.json?user[password]=%@", [self.user_Id.text urlEncodeUsingEncoding:NSUTF8StringEncoding], [self.password.text urlEncodeUsingEncoding:NSUTF8StringEncoding]] withDelegate:self withMethod:@"GET" withParameters:nil];
+    loadJson = [LoadURLJson download:[NSString stringWithFormat:@"/users/%@/all_unseen_posts.json?user[password]=%@", [[[STSession thisSession] loggedInUser] objectForKey:@"id"], [[[STSession thisSession] loggedInUser] objectForKey:@"password"]] withDelegate:self withMethod:@"GET" withParameters:nil];
     NSLog(@"Request Made");
 }
-
-
 
 
 - (void)downloadFinished
@@ -65,7 +61,9 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
-    
+    if ([response objectForKey:@"user"]) {
+        [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    }
     NSLog(@"response: %@", response);
     
 }

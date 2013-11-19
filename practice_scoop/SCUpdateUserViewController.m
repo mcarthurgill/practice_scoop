@@ -18,8 +18,6 @@
 @implementation SCUpdateUserViewController
 
 @synthesize name;
-@synthesize password;
-@synthesize phone;
 @synthesize updateButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,7 +64,9 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
-    [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    if ([response objectForKey:@"user"]) {
+        [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    }
     NSLog(@"response: %@", response);
     
 }

@@ -65,7 +65,9 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
-    [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    if ([response objectForKey:@"user"]) {
+        [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    }
     NSLog(@"response: %@", [[STSession thisSession] loggedInUser]);
     
 }

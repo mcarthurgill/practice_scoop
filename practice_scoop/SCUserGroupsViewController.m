@@ -17,8 +17,6 @@
 
 @implementation SCUserGroupsViewController
 
-@synthesize user_id;
-@synthesize password;
 @synthesize findGroupsButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,7 +64,9 @@
 - (void) analyzeResponse:(NSDictionary*)response
 {
     [self hideHUD];
-    
+    if ([response objectForKey:@"user"]) {
+        [[STSession thisSession] setLoggedInUser:[response objectForKey:@"user"]];
+    }
     NSLog(@"response: %@", response);
     
 }

@@ -17,8 +17,6 @@
     MBProgressHUD* HUD;
 }
 @property (strong, nonatomic) IBOutlet UITextField *name;
-@property (strong, nonatomic) IBOutlet UITextField *phone;
-@property (strong, nonatomic) IBOutlet UITextField *password;
 @property (strong, nonatomic) IBOutlet UIButton *updateButton;
 
 - (IBAction)updateButtonAction:(id)sender;

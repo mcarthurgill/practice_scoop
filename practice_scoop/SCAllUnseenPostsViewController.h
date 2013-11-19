@@ -15,8 +15,7 @@
     LoadURLJson* loadJson;
     MBProgressHUD* HUD;
 }
-@property (strong, nonatomic) IBOutlet UITextField *user_Id;
-@property (strong, nonatomic) IBOutlet UITextField *password;
+
 @property (strong, nonatomic) IBOutlet UIButton *unseenPostsButton;
 
 - (IBAction)unseenPostsAction:(id)sender;
