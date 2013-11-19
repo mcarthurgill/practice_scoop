@@ -24,6 +24,7 @@
 		764F7EAE183AB803005ABC87 /* LoadURLJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EAD183AB803005ABC87 /* LoadURLJson.m */; };
 		764F7EB4183ABF83005ABC87 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB1183ABF83005ABC87 /* MBProgressHUD.m */; };
 		764F7EB5183ABF83005ABC87 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */; };
+		764F7EB8183AD5E4005ABC87 /* SCUpdateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB7183AD5E4005ABC87 /* SCUpdateUserViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		764F7EB1183ABF83005ABC87 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		764F7EB2183ABF83005ABC87 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		764F7EB6183AD5E4005ABC87 /* SCUpdateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUpdateUserViewController.h; sourceTree = "<group>"; };
+		764F7EB7183AD5E4005ABC87 /* SCUpdateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUpdateUserViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				764F7E82183AB634005ABC87 /* Main.storyboard */,
 				764F7EA5183AB6AC005ABC87 /* SCSignUpViewController.h */,
 				764F7EA6183AB6AC005ABC87 /* SCSignUpViewController.m */,
+				764F7EB6183AD5E4005ABC87 /* SCUpdateUserViewController.h */,
+				764F7EB7183AD5E4005ABC87 /* SCUpdateUserViewController.m */,
 				764F7E88183AB634005ABC87 /* Images.xcassets */,
 				764F7EAF183ABF50005ABC87 /* helpers */,
 				764F7EA8183AB722005ABC87 /* LoadJSON */,
@@ -284,6 +289,7 @@
 				764F7EB5183ABF83005ABC87 /* NSString+URLEncoding.m in Sources */,
 				764F7E81183AB634005ABC87 /* SCAppDelegate.m in Sources */,
 				764F7EAE183AB803005ABC87 /* LoadURLJson.m in Sources */,
+				764F7EB8183AD5E4005ABC87 /* SCUpdateUserViewController.m in Sources */,
 				764F7EB4183ABF83005ABC87 /* MBProgressHUD.m in Sources */,
 				764F7E7D183AB634005ABC87 /* main.m in Sources */,
 				764F7EA7183AB6AC005ABC87 /* SCSignUpViewController.m in Sources */,

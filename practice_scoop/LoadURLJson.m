@@ -27,7 +27,9 @@
     LoadURLJson *loadJson = [[self alloc] init];
     if ([method isEqualToString:@"GET"]) {
         loadJson.urlString = [NSString stringWithFormat:@"%@%@%@", baseURL, aURLString, baseParameters ];
-    } else {
+    }else if ([method isEqualToString:@"PUT"]) {
+        loadJson.urlString = [NSString stringWithFormat:@"%@%@%@", baseURL, aURLString, baseParameters ];
+    }else {
         loadJson.urlString = [NSString stringWithFormat:@"%@%@", baseURL, aURLString ];
     }
     loadJson.delegate = aDelegate;
