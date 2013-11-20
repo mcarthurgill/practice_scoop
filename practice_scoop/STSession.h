@@ -24,6 +24,8 @@
 
 @property (strong, nonatomic) NSDictionary* loggedInUser;
 
+@property (strong, nonatomic) NSDictionary* currentGroup; 
+
 - (NSString *)applicationDocumentsDirectory;
 
 

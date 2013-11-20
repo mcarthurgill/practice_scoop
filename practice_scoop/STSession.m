@@ -14,6 +14,7 @@ static STSession* thisSession = nil;
 
 @synthesize deviceTokenString;
 @synthesize loggedInUser;
+@synthesize currentGroup; 
 
 //constructor
 -(id) init

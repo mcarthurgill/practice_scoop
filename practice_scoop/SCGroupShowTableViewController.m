@@ -50,8 +50,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
         NSLog(@"****** ROWS");
-    NSLog(@"****COUNT = %lu", (unsigned long)[[[STSession thisSession] groups] count]);
-    return [[[STSession thisSession] groups] count];
+//    NSLog(@"****COUNT = %lu", (unsigned long)[[[STSession thisSession] groups] count]);
+//    return [[[STSession thisSession] groups] count];
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,7 +67,7 @@
                 reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[[[STSession thisSession] groups] objectAtIndex:[indexPath row]] objectForKey:@"group_name"];
+//    cell.textLabel.text = [[[[STSession thisSession] groups] objectAtIndex:[indexPath row]] objectForKey:@"group_name"];
     
     return cell;
 }
@@ -104,7 +105,7 @@
                 [arr addObject:[[response objectForKey:key] objectAtIndex:i]];
             }
         }
-        [[[STSession thisSession] groups] initWithArray:arr];
+      //  [[[STSession thisSession] groups] initWithArray:arr];
     }
     //NSLog(@"response: %@", response);
     
