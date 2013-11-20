@@ -30,6 +30,10 @@
 		769C6700183BCC8E00DF036A /* SCUserShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769C66FF183BCC8E00DF036A /* SCUserShowViewController.m */; };
 		769C6704183BE31100DF036A /* STSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 769C6703183BE31100DF036A /* STSession.m */; };
 		769C6709183BFD9D00DF036A /* SCGroupsCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769C6708183BFD9D00DF036A /* SCGroupsCreateViewController.m */; };
+		76BFF43D183CFB3200C92A48 /* SCGroupShowTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BFF43C183CFB3200C92A48 /* SCGroupShowTableViewController.m */; };
+		76BFF440183CFF0B00C92A48 /* SCGroupShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BFF43F183CFF0B00C92A48 /* SCGroupShowTableViewCell.m */; };
+		76BFF443183D184200C92A48 /* SCShowOneGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BFF442183D184200C92A48 /* SCShowOneGroupViewController.m */; };
+		76BFF447183D1C4A00C92A48 /* SCPostCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BFF446183D1C4A00C92A48 /* SCPostCreateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,14 @@
 		769C6703183BE31100DF036A /* STSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSession.m; sourceTree = "<group>"; };
 		769C6707183BFD9D00DF036A /* SCGroupsCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroupsCreateViewController.h; sourceTree = "<group>"; };
 		769C6708183BFD9D00DF036A /* SCGroupsCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGroupsCreateViewController.m; sourceTree = "<group>"; };
+		76BFF43B183CFB3200C92A48 /* SCGroupShowTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroupShowTableViewController.h; sourceTree = "<group>"; };
+		76BFF43C183CFB3200C92A48 /* SCGroupShowTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGroupShowTableViewController.m; sourceTree = "<group>"; };
+		76BFF43E183CFF0B00C92A48 /* SCGroupShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroupShowTableViewCell.h; sourceTree = "<group>"; };
+		76BFF43F183CFF0B00C92A48 /* SCGroupShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGroupShowTableViewCell.m; sourceTree = "<group>"; };
+		76BFF441183D184200C92A48 /* SCShowOneGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShowOneGroupViewController.h; sourceTree = "<group>"; };
+		76BFF442183D184200C92A48 /* SCShowOneGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShowOneGroupViewController.m; sourceTree = "<group>"; };
+		76BFF445183D1C4A00C92A48 /* SCPostCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPostCreateViewController.h; sourceTree = "<group>"; };
+		76BFF446183D1C4A00C92A48 /* SCPostCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPostCreateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +154,9 @@
 				764F7E7F183AB634005ABC87 /* SCAppDelegate.h */,
 				764F7E80183AB634005ABC87 /* SCAppDelegate.m */,
 				764F7E82183AB634005ABC87 /* Main.storyboard */,
-				769C6706183BFD7F00DF036A /* Groups Controller */,
 				769C6705183BFD5D00DF036A /* Users Controller */,
+				769C6706183BFD7F00DF036A /* Groups Controller */,
+				76BFF444183D1C2600C92A48 /* Posts Controller */,
 				764F7E88183AB634005ABC87 /* Images.xcassets */,
 				769C6701183BE2F600DF036A /* Session */,
 				764F7EAF183ABF50005ABC87 /* helpers */,
@@ -233,8 +246,23 @@
 			children = (
 				769C6707183BFD9D00DF036A /* SCGroupsCreateViewController.h */,
 				769C6708183BFD9D00DF036A /* SCGroupsCreateViewController.m */,
+				76BFF43B183CFB3200C92A48 /* SCGroupShowTableViewController.h */,
+				76BFF43C183CFB3200C92A48 /* SCGroupShowTableViewController.m */,
+				76BFF43E183CFF0B00C92A48 /* SCGroupShowTableViewCell.h */,
+				76BFF43F183CFF0B00C92A48 /* SCGroupShowTableViewCell.m */,
+				76BFF441183D184200C92A48 /* SCShowOneGroupViewController.h */,
+				76BFF442183D184200C92A48 /* SCShowOneGroupViewController.m */,
 			);
 			name = "Groups Controller";
+			sourceTree = "<group>";
+		};
+		76BFF444183D1C2600C92A48 /* Posts Controller */ = {
+			isa = PBXGroup;
+			children = (
+				76BFF445183D1C4A00C92A48 /* SCPostCreateViewController.h */,
+				76BFF446183D1C4A00C92A48 /* SCPostCreateViewController.m */,
+			);
+			name = "Posts Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,11 +369,15 @@
 				764F7E81183AB634005ABC87 /* SCAppDelegate.m in Sources */,
 				769C66FD183BC54900DF036A /* SCAllUnseenPostsViewController.m in Sources */,
 				764F7EAE183AB803005ABC87 /* LoadURLJson.m in Sources */,
+				76BFF447183D1C4A00C92A48 /* SCPostCreateViewController.m in Sources */,
+				76BFF443183D184200C92A48 /* SCShowOneGroupViewController.m in Sources */,
 				769C6704183BE31100DF036A /* STSession.m in Sources */,
 				769C66FA183BB85200DF036A /* SCUserGroupsViewController.m in Sources */,
 				764F7EB8183AD5E4005ABC87 /* SCUpdateUserViewController.m in Sources */,
 				764F7EB4183ABF83005ABC87 /* MBProgressHUD.m in Sources */,
+				76BFF43D183CFB3200C92A48 /* SCGroupShowTableViewController.m in Sources */,
 				764F7E7D183AB634005ABC87 /* main.m in Sources */,
+				76BFF440183CFF0B00C92A48 /* SCGroupShowTableViewCell.m in Sources */,
 				764F7EA7183AB6AC005ABC87 /* SCSignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
