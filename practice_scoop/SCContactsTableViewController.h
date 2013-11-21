@@ -13,7 +13,8 @@
 @interface SCContactsTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
 @property (nonatomic) NSInteger contactCount;
-@property (strong, nonatomic) IBOutlet NSMutableDictionary *contacts;
-@property (strong, nonatomic) IBOutlet NSDictionary *alphabet; 
+@property (strong, nonatomic) NSMutableArray *contacts;
+@property (strong, nonatomic) NSMutableDictionary *alphabet;
+@property (strong, nonatomic) NSArray *sortedKeys;
 
 @end

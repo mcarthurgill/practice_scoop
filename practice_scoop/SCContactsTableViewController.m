@@ -17,6 +17,7 @@
 @synthesize contactCount;
 @synthesize contacts;
 @synthesize alphabet;
+@synthesize sortedKeys;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,17 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    contacts = [[NSMutableDictionary alloc] init];
+    contacts = [[NSMutableArray alloc] init];
     alphabet = [[NSMutableDictionary alloc] init];
+    sortedKeys = [[NSArray alloc] init];
     NSArray *alphaLetters = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", @"ZZ_OTHER", nil];
     
     for (int i = 0; i < 27; i++) {
         NSMutableArray *empty = [[NSMutableArray alloc] init];
         [alphabet setValue:empty forKey:[alphaLetters objectAtIndex:i]];
     }
-    
-    NSString *firstLetter = @"";
-    
 
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
     CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople( addressBook );
@@ -49,45 +48,75 @@
     NSString *firstName;
     NSString *lastName;
     NSString *phone;
+    NSString *firstLetter;
+    
     for ( int i = 0; i < contactCount; i++ )
     {
-        ABRecordRef ref = CFArrayGetValueAtIndex( allPeople, i );
-        ABMultiValueRef multi = ABRecordCopyValue(ref, kABPersonPhoneProperty);
-        firstName = (__bridge NSString*)ABRecordCopyValue(ref, kABPersonFirstNameProperty);
-        lastName = (__bridge NSString*)ABRecordCopyValue(ref, kABPersonLastNameProperty);
-        name = (__bridge NSString *)(ABRecordCopyCompositeName(ref));
+        ABRecordRef person = CFArrayGetValueAtIndex( allPeople, i );
+        ABMultiValueRef multi = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        firstName = (__bridge NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        lastName = (__bridge NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+        name = (__bridge NSString *)(ABRecordCopyCompositeName(person));
+
         
-        if (lastName) {
-            firstLetter = [lastName substringToIndex:1];
-        }else if (firstName){
-            firstLetter = [firstName substringToIndex:1];
+        if ([alphaLetters containsObject:[[lastName substringToIndex:1] uppercaseString]]) {
+            firstLetter = [[lastName substringToIndex:1] uppercaseString];
+        }else if ([alphaLetters containsObject:[[firstName substringToIndex:1] uppercaseString]]){
+            firstLetter = [[firstName substringToIndex:1] uppercaseString];
         }else {
-            firstLetter = @"zz_other";
+            firstLetter = @"ZZ_OTHER";
         }
         
-        NSLog(@"firstLetter = %@", firstLetter);
-
-//        if (ABMultiValueGetCount(multi)){
-//            phone = (__bridge NSString*)ABMultiValueCopyValueAtIndex(multi, 0);
-//        }
-//
-//        NSMutableDictionary *second = [[NSMutableDictionary alloc] init];
-//        
-//        [second setObject:name forKey:@"name"];
-//        [second setObject:phone forKey:@"phone"];
-//        
-//        if ([contacts objectForKey:phone]) {
-//            [contacts removeObjectForKey:phone];
-//        }else{
-//            [contacts setObject:second forKey:phone];
-//        }
-//        NSLog(@"name=%@", name);
-
+        if (ABMultiValueGetCount(multi)){
+            phone = (__bridge NSString*)ABMultiValueCopyValueAtIndex(multi, 0);
+            if ([alphabet objectForKey:firstLetter]) {
+                NSArray *values = [[NSArray alloc] initWithObjects:name, firstName, lastName, phone, nil];
+                NSArray *keys = [[NSArray alloc] initWithObjects:@"name", @"firstName", @"lastName", @"phone", nil];
+                NSDictionary *contact = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
+                [self addDictionary:contact toSortedArray:[alphabet objectForKey:firstLetter]];
+            }
+        }
     }
-//
-//   // NSLog(@"contacts = %@", contacts);
+    
+    NSArray *keysForNullValues = [alphabet allKeysForObject:[[NSMutableArray alloc] init]];
+    [alphabet removeObjectsForKeys:keysForNullValues];
+     
+    sortedKeys = [[alphabet allKeys] sortedArrayUsingSelector:@selector(compare:)];
+    
+    contacts = [[NSMutableArray alloc] initWithArray:nil];
+    for (int i = 0; i < sortedKeys.count; ++i) {
+        [contacts addObject:[alphabet objectForKey:[sortedKeys objectAtIndex:i]]];
+    }
 
 
+//    NSLog(@"alphabet = %lu", [alphabet count]);
+//    NSLog(@"alphabet = %@", alphabet);
+    NSLog(@"contacts = %@", contacts);
+
+}
+
+-(NSMutableArray *)addDictionary:(NSDictionary *)contact toSortedArray:(NSMutableArray *)array
+{
+    if ([array count] == 0) {
+        [array addObject:contact];
+        return array;
+    }
+    for(int i = 0; i < [array count]; i++)
+    {
+        for(int j = i+1; j <= [array count]; j++)
+        {
+            NSString *recordOne = [[[array objectAtIndex:i] valueForKey:@"lastName"] lowercaseString];
+            NSString *recordTwo = [[contact valueForKey:@"lastName"] lowercaseString];
+            NSComparisonResult result = [recordOne compare:recordTwo];
+            if(result == NSOrderedDescending) {
+                [array insertObject:contact atIndex:i];
+            }
+            else {
+                return array;
+            }
+        }
+    }
+    return array;
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,15 +129,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return contacts.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"num rows = %d", contactCount); 
-    return contactCount;
+    return [[contacts objectAtIndex:section] count];
+}
+
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [sortedKeys objectAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
