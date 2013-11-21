@@ -28,6 +28,8 @@
 		764F7EB4183ABF83005ABC87 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB1183ABF83005ABC87 /* MBProgressHUD.m */; };
 		764F7EB5183ABF83005ABC87 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */; };
 		764F7EB8183AD5E4005ABC87 /* SCUpdateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F7EB7183AD5E4005ABC87 /* SCUpdateUserViewController.m */; };
+		768D4DAD183E5C2D00D2D5FD /* SCContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768D4DAC183E5C2D00D2D5FD /* SCContactsTableViewController.m */; };
+		768D4DB0183E5C4C00D2D5FD /* SCContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768D4DAF183E5C4C00D2D5FD /* SCContactsTableViewCell.m */; };
 		769C66FA183BB85200DF036A /* SCUserGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769C66F9183BB85200DF036A /* SCUserGroupsViewController.m */; };
 		769C66FD183BC54900DF036A /* SCAllUnseenPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769C66FC183BC54900DF036A /* SCAllUnseenPostsViewController.m */; };
 		769C6700183BCC8E00DF036A /* SCUserShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769C66FF183BCC8E00DF036A /* SCUserShowViewController.m */; };
@@ -81,6 +83,10 @@
 		764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		764F7EB6183AD5E4005ABC87 /* SCUpdateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUpdateUserViewController.h; sourceTree = "<group>"; };
 		764F7EB7183AD5E4005ABC87 /* SCUpdateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUpdateUserViewController.m; sourceTree = "<group>"; };
+		768D4DAB183E5C2D00D2D5FD /* SCContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCContactsTableViewController.h; sourceTree = "<group>"; };
+		768D4DAC183E5C2D00D2D5FD /* SCContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCContactsTableViewController.m; sourceTree = "<group>"; };
+		768D4DAE183E5C4C00D2D5FD /* SCContactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCContactsTableViewCell.h; sourceTree = "<group>"; };
+		768D4DAF183E5C4C00D2D5FD /* SCContactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCContactsTableViewCell.m; sourceTree = "<group>"; };
 		769C66F8183BB85200DF036A /* SCUserGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUserGroupsViewController.h; sourceTree = "<group>"; };
 		769C66F9183BB85200DF036A /* SCUserGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUserGroupsViewController.m; sourceTree = "<group>"; };
 		769C66FB183BC54900DF036A /* SCAllUnseenPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAllUnseenPostsViewController.h; sourceTree = "<group>"; };
@@ -168,13 +174,12 @@
 				769C6705183BFD5D00DF036A /* Users Controller */,
 				769C6706183BFD7F00DF036A /* Groups Controller */,
 				76BFF444183D1C2600C92A48 /* Posts Controller */,
+				768D4DAA183E5C0400D2D5FD /* Contacts */,
 				764F7E88183AB634005ABC87 /* Images.xcassets */,
 				769C6701183BE2F600DF036A /* Session */,
 				764F7EAF183ABF50005ABC87 /* helpers */,
 				764F7EA8183AB722005ABC87 /* LoadJSON */,
 				764F7E77183AB634005ABC87 /* Supporting Files */,
-				763D2B04183D406500B9F9AD /* SCAddressViewController.h */,
-				763D2B05183D406500B9F9AD /* SCAddressViewController.m */,
 			);
 			path = practice_scoop;
 			sourceTree = "<group>";
@@ -226,6 +231,19 @@
 				764F7EB3183ABF83005ABC87 /* NSString+URLEncoding.m */,
 			);
 			name = helpers;
+			sourceTree = "<group>";
+		};
+		768D4DAA183E5C0400D2D5FD /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				763D2B04183D406500B9F9AD /* SCAddressViewController.h */,
+				763D2B05183D406500B9F9AD /* SCAddressViewController.m */,
+				768D4DAB183E5C2D00D2D5FD /* SCContactsTableViewController.h */,
+				768D4DAC183E5C2D00D2D5FD /* SCContactsTableViewController.m */,
+				768D4DAE183E5C4C00D2D5FD /* SCContactsTableViewCell.h */,
+				768D4DAF183E5C4C00D2D5FD /* SCContactsTableViewCell.m */,
+			);
+			name = Contacts;
 			sourceTree = "<group>";
 		};
 		769C6701183BE2F600DF036A /* Session */ = {
@@ -382,6 +400,7 @@
 				763D2B06183D406500B9F9AD /* SCAddressViewController.m in Sources */,
 				764F7E81183AB634005ABC87 /* SCAppDelegate.m in Sources */,
 				769C66FD183BC54900DF036A /* SCAllUnseenPostsViewController.m in Sources */,
+				768D4DAD183E5C2D00D2D5FD /* SCContactsTableViewController.m in Sources */,
 				764F7EAE183AB803005ABC87 /* LoadURLJson.m in Sources */,
 				76BFF447183D1C4A00C92A48 /* SCPostCreateViewController.m in Sources */,
 				76BFF443183D184200C92A48 /* SCShowOneGroupViewController.m in Sources */,
@@ -393,6 +412,7 @@
 				764F7E7D183AB634005ABC87 /* main.m in Sources */,
 				76BFF440183CFF0B00C92A48 /* SCGroupShowTableViewCell.m in Sources */,
 				764F7EA7183AB6AC005ABC87 /* SCSignUpViewController.m in Sources */,
+				768D4DB0183E5C4C00D2D5FD /* SCContactsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
