@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		763D2B06183D406500B9F9AD /* SCAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D2B05183D406500B9F9AD /* SCAddressViewController.m */; };
+		763D2B08183D408000B9F9AD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D2B07183D408000B9F9AD /* AddressBook.framework */; };
+		763D2B0A183D408B00B9F9AD /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D2B09183D408B00B9F9AD /* AddressBookUI.framework */; };
 		764F7E71183AB634005ABC87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764F7E70183AB634005ABC87 /* Foundation.framework */; };
 		764F7E73183AB634005ABC87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764F7E72183AB634005ABC87 /* CoreGraphics.framework */; };
 		764F7E75183AB634005ABC87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764F7E74183AB634005ABC87 /* UIKit.framework */; };
@@ -47,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		763D2B04183D406500B9F9AD /* SCAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddressViewController.h; sourceTree = "<group>"; };
+		763D2B05183D406500B9F9AD /* SCAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddressViewController.m; sourceTree = "<group>"; };
+		763D2B07183D408000B9F9AD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		763D2B09183D408B00B9F9AD /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		764F7E6D183AB634005ABC87 /* practice_scoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice_scoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764F7E70183AB634005ABC87 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		764F7E72183AB634005ABC87 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763D2B0A183D408B00B9F9AD /* AddressBookUI.framework in Frameworks */,
+				763D2B08183D408000B9F9AD /* AddressBook.framework in Frameworks */,
 				764F7E73183AB634005ABC87 /* CoreGraphics.framework in Frameworks */,
 				764F7E75183AB634005ABC87 /* UIKit.framework in Frameworks */,
 				764F7E71183AB634005ABC87 /* Foundation.framework in Frameworks */,
@@ -140,6 +149,8 @@
 		764F7E6F183AB634005ABC87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				763D2B09183D408B00B9F9AD /* AddressBookUI.framework */,
+				763D2B07183D408000B9F9AD /* AddressBook.framework */,
 				764F7E70183AB634005ABC87 /* Foundation.framework */,
 				764F7E72183AB634005ABC87 /* CoreGraphics.framework */,
 				764F7E74183AB634005ABC87 /* UIKit.framework */,
@@ -162,6 +173,8 @@
 				764F7EAF183ABF50005ABC87 /* helpers */,
 				764F7EA8183AB722005ABC87 /* LoadJSON */,
 				764F7E77183AB634005ABC87 /* Supporting Files */,
+				763D2B04183D406500B9F9AD /* SCAddressViewController.h */,
+				763D2B05183D406500B9F9AD /* SCAddressViewController.m */,
 			);
 			path = practice_scoop;
 			sourceTree = "<group>";
@@ -366,6 +379,7 @@
 				769C6700183BCC8E00DF036A /* SCUserShowViewController.m in Sources */,
 				764F7EB5183ABF83005ABC87 /* NSString+URLEncoding.m in Sources */,
 				769C6709183BFD9D00DF036A /* SCGroupsCreateViewController.m in Sources */,
+				763D2B06183D406500B9F9AD /* SCAddressViewController.m in Sources */,
 				764F7E81183AB634005ABC87 /* SCAppDelegate.m in Sources */,
 				769C66FD183BC54900DF036A /* SCAllUnseenPostsViewController.m in Sources */,
 				764F7EAE183AB803005ABC87 /* LoadURLJson.m in Sources */,
