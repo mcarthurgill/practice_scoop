@@ -275,6 +275,7 @@
 
 - (void) reloadContacts
 {
+    NSLog(@"reloading contacts");
    [self.tableView reloadData];
 }
 
@@ -349,9 +350,8 @@
 
     if (lengthBefore == [selectedContacts count] && lengthBefore > 0){
         [selectedContacts removeObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
     }else{
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         [[tableView cellForRowAtIndexPath:indexPath] setHighlighted:YES animated:YES];
     }
     //NSLog(@"selected contacts = %@", selectedContacts);
