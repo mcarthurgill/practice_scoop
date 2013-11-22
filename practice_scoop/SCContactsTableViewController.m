@@ -346,8 +346,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger lengthBefore = [selectedContacts count];
     [selectedContacts addObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-
+    
     if (lengthBefore == [selectedContacts count] && lengthBefore > 0){
         [selectedContacts removeObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
         [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
