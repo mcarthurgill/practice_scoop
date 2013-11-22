@@ -10,11 +10,16 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "SCContactsTableViewCell.h"
 
-@interface SCContactsTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+@interface SCContactsTableViewController : UITableViewController <UISearchBarDelegate>
+
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic) NSInteger contactCount;
 @property (strong, nonatomic) NSMutableArray *contacts;
 @property (strong, nonatomic) NSMutableDictionary *alphabet;
-@property (strong, nonatomic) NSArray *sortedKeys;
+@property (strong, nonatomic) NSMutableArray *sortedKeys;
+
+@property (strong, nonatomic) NSMutableDictionary* contactsArrayDict;
+@property (strong, nonatomic) NSMutableDictionary* keysArrayDict;
 
 @end
