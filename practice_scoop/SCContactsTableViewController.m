@@ -347,7 +347,7 @@
    
    
    if ([selectedContacts objectForKey:[contact objectForKey:@"phone"]]) {
-      
+      [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
    }
    
     return cell;
