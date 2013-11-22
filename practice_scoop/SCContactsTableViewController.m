@@ -321,6 +321,10 @@
     static NSString *CellIdentifier = @"SCContactsTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellSelectionStyleNone reuseIdentifier:@"SCContactsTableViewCell"];
+//    }
+    
    UILabel* contactName = (UILabel*) [cell.contentView viewWithTag:1];
    
    NSDictionary* contact = [[[self contactsToWorkWith] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
@@ -351,19 +355,16 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger lengthBefore = [selectedContacts count];
-    //contact is not added if already present since selectedContacts is a NSMutableOrderedSet
-    [selectedContacts addObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (lengthBefore == [selectedContacts count] && lengthBefore > 0){
+    if([selectedContacts containsObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]]){
         [selectedContacts removeObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell setHighlighted:NO animated:YES];
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }else{
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        [cell setHighlighted:YES animated:YES];
+        [selectedContacts addObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
+    
    // NSLog(@"selected contacts = %@", selectedContacts);
 }
 
