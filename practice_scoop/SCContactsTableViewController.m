@@ -327,6 +327,7 @@
 //    }
     
    UILabel* contactName = (UILabel*) [cell.contentView viewWithTag:1];
+   UIImageView* checkBox = (UIImageView*) [cell.contentView viewWithTag:2];
    
    NSDictionary* contact = [[[self contactsToWorkWith] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
@@ -348,6 +349,9 @@
    
    if ([selectedContacts objectForKey:[contact objectForKey:@"phone"]]) {
       [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+      [checkBox setImage:[UIImage imageNamed:@"checked.png"]];
+   } else {
+      [checkBox setImage:[UIImage imageNamed:@"unchecked.png"]];
    }
    
     return cell;
@@ -357,6 +361,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
    NSDictionary* c = [[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+   
+   [(UIImageView*) [[[tableView cellForRowAtIndexPath:indexPath] contentView] viewWithTag:2] setImage:[UIImage imageNamed:@"checked.png"]];
    
    NSLog(@"ADD TO SELECTED CONTACTS");
    [self addContactToSelected:c];
@@ -369,6 +375,8 @@
 {
    
    NSDictionary* c = [[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+   
+   [(UIImageView*) [[[tableView cellForRowAtIndexPath:indexPath] contentView] viewWithTag:2] setImage:[UIImage imageNamed:@"unchecked.png"]];
    
    NSLog(@"REMOVE FROM SELECTED CONTACTS");
    [self removeContactFromSelected:c];

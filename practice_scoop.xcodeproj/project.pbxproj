@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282D0157184011FA00345849 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 282D0155184011FA00345849 /* checked.png */; };
+		282D0158184011FA00345849 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 282D0156184011FA00345849 /* unchecked.png */; };
 		763D2B06183D406500B9F9AD /* SCAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D2B05183D406500B9F9AD /* SCAddressViewController.m */; };
 		763D2B08183D408000B9F9AD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D2B07183D408000B9F9AD /* AddressBook.framework */; };
 		763D2B0A183D408B00B9F9AD /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D2B09183D408B00B9F9AD /* AddressBookUI.framework */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		282D0155184011FA00345849 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		282D0156184011FA00345849 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		763D2B04183D406500B9F9AD /* SCAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddressViewController.h; sourceTree = "<group>"; };
 		763D2B05183D406500B9F9AD /* SCAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddressViewController.m; sourceTree = "<group>"; };
 		763D2B07183D408000B9F9AD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -236,6 +240,8 @@
 		768D4DAA183E5C0400D2D5FD /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				282D0155184011FA00345849 /* checked.png */,
+				282D0156184011FA00345849 /* unchecked.png */,
 				763D2B04183D406500B9F9AD /* SCAddressViewController.h */,
 				763D2B05183D406500B9F9AD /* SCAddressViewController.m */,
 				768D4DAB183E5C2D00D2D5FD /* SCContactsTableViewController.h */,
@@ -374,8 +380,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				764F7E89183AB634005ABC87 /* Images.xcassets in Resources */,
+				282D0157184011FA00345849 /* checked.png in Resources */,
 				764F7E7B183AB634005ABC87 /* InfoPlist.strings in Resources */,
 				764F7E84183AB634005ABC87 /* Main.storyboard in Resources */,
+				282D0158184011FA00345849 /* unchecked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
