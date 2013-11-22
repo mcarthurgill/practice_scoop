@@ -317,13 +317,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"indexpath = %@", indexPath);
     static NSString *CellIdentifier = @"SCContactsTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
    UILabel* contactName = (UILabel*) [cell.contentView viewWithTag:1];
    
    NSDictionary* contact = [[[self contactsToWorkWith] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-   
+    
 //   NSString *boldFontName = [[UIFont boldSystemFontOfSize:12] fontName];
 //   NSString *yourString = [contact objectForKey:@"name"];
 //   NSRange boldedRange = NSMakeRange([[contact objectForKey:@"firstName"] length], [[contact objectForKey:@"lastName"] length]);
@@ -338,6 +339,12 @@
 
    
    [contactName setText:[contact objectForKey:@"name"]];
+    
+    if ([selectedContacts containsObject:contact]){
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        [cell setHighlighted:YES animated:NO];
+    }
+    
    
     return cell;
 }
@@ -345,15 +352,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger lengthBefore = [selectedContacts count];
+    //contact is not added if already present since selectedContacts is a NSMutableOrderedSet
     [selectedContacts addObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (lengthBefore == [selectedContacts count] && lengthBefore > 0){
         [selectedContacts removeObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setHighlighted:NO animated:YES];
     }else{
-        [[tableView cellForRowAtIndexPath:indexPath] setHighlighted:YES animated:YES];
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        [cell setHighlighted:YES animated:YES];
     }
-    //NSLog(@"selected contacts = %@", selectedContacts);
+   // NSLog(@"selected contacts = %@", selectedContacts);
 }
 
 
