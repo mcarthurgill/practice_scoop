@@ -21,5 +21,6 @@
 
 @property (strong, nonatomic) NSMutableDictionary* contactsArrayDict;
 @property (strong, nonatomic) NSMutableDictionary* keysArrayDict;
+@property (strong, nonatomic) NSMutableOrderedSet* selectedContacts;
 
 @end

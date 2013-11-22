@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "practice_scoop/SCContactsTableViewController.m"
-            timestampString = "406758779.329366"
+            timestampString = "406842409.891032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-addDictionary:toSortedArray:"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-getAddressBook"
             landmarkType = "5">
             <Locations>
                <Location
@@ -56,13 +56,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "practice_scoop/SCContactsTableViewController.m"
-            timestampString = "406758779.329366"
+            timestampString = "406842409.891032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-addDictionary:toSortedArray:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-getAddressBook"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "practice_scoop/SCContactsTableViewController.m"
+            timestampString = "406844293.3753"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "@implementation SCContactsTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

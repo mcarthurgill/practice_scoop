@@ -21,6 +21,7 @@
 @synthesize searchBar;
 @synthesize contactsArrayDict;
 @synthesize keysArrayDict;
+@synthesize selectedContacts;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -64,6 +65,7 @@
    contacts = [[NSMutableArray alloc] init];
    alphabet = [[NSMutableDictionary alloc] init];
    sortedKeys = [[NSMutableArray alloc] init];
+   selectedContacts = [[NSMutableOrderedSet alloc] init];
 }
 
 - (void) getAddressBook
@@ -339,6 +341,21 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger lengthBefore = [selectedContacts count];
+    [selectedContacts addObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    if (lengthBefore == [selectedContacts count] && lengthBefore > 0){
+        [selectedContacts removeObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }else{
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        [[tableView cellForRowAtIndexPath:indexPath] setHighlighted:YES animated:YES];
+    }
+    //NSLog(@"selected contacts = %@", selectedContacts);
+}
 
 
 //=== SEARCH BAR DELEGATE
