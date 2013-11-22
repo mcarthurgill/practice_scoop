@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "practice_scoop/SCContactsTableViewController.m"
-            timestampString = "406848805.776614"
+            timestampString = "406849762.993032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "@implementation SCContactsTableViewController"
             landmarkType = "3">
          </BreakpointContent>

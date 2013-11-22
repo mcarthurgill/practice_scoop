@@ -322,6 +322,10 @@
     static NSString *CellIdentifier = @"SCContactsTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellSelectionStyleNone reuseIdentifier:@"SCContactsTableViewCell"];
+//    }
+    
    UILabel* contactName = (UILabel*) [cell.contentView viewWithTag:1];
    
    NSDictionary* contact = [[[self contactsToWorkWith] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
