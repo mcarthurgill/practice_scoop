@@ -65,7 +65,7 @@
    contacts = [[NSMutableArray alloc] init];
    alphabet = [[NSMutableDictionary alloc] init];
    sortedKeys = [[NSMutableArray alloc] init];
-   selectedContacts = [[NSMutableOrderedSet alloc] init];
+   selectedContacts = [[NSMutableDictionary alloc] init];
 }
 
 - (void) getAddressBook
@@ -317,7 +317,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexpath = %@", indexPath);
+   NSLog(@"NUMBER SELECTED: %i", selectedContacts.count);
+   
     static NSString *CellIdentifier = @"SCContactsTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -339,32 +340,36 @@
 
    
    [contactName setText:[contact objectForKey:@"name"]];
-    
-    if ([selectedContacts containsObject:contact]){
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        [cell setHighlighted:YES animated:NO];
-    }
-    
+   
+   
+   if ([selectedContacts objectForKey:[contact objectForKey:@"phone"]]) {
+      
+   }
    
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger lengthBefore = [selectedContacts count];
-    //contact is not added if already present since selectedContacts is a NSMutableOrderedSet
-    [selectedContacts addObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if (lengthBefore == [selectedContacts count] && lengthBefore > 0){
-        [selectedContacts removeObject:[[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell setHighlighted:NO animated:YES];
-    }else{
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        [cell setHighlighted:YES animated:YES];
-    }
-   // NSLog(@"selected contacts = %@", selectedContacts);
+   
+   NSDictionary* c = [[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+   
+   NSLog(@"ADD TO SELECTED CONTACTS");
+   [self addContactToSelected:c];
+   [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+   
+}
+
+
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+   NSDictionary* c = [[contacts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+   
+   NSLog(@"REMOVE FROM SELECTED CONTACTS");
+   [self removeContactFromSelected:c];
+   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   
 }
 
 
@@ -391,6 +396,19 @@
    
    NSLog(@"%@", searchText);
    
+}
+
+
+- (void) addContactToSelected:(NSDictionary*)c
+{
+   if (![selectedContacts objectForKey:[c objectForKey:@"phone"]]) {
+      [selectedContacts setObject:c forKey:[c objectForKey:@"phone"]];
+   }
+}
+
+- (void) removeContactFromSelected:(NSDictionary*)c
+{
+   [selectedContacts removeObjectForKey:[c objectForKey:@"phone"]];
 }
 
 
