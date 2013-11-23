@@ -36,8 +36,6 @@
 {
     [super viewDidLoad];
    
-   
-   
    [self initializeVariables];
    
    [self getAddressBook];
@@ -53,10 +51,9 @@
          }
       }
    });
-   
-   
 
 }
+
 
 - (void) initializeVariables
 {
@@ -70,7 +67,6 @@
 
 - (void) getAddressBook
 {
-   
    
    NSArray *alphaLetters = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", @"ZZ_OTHER", nil];
    
@@ -408,6 +404,10 @@
    
    NSLog(@"%@", searchText);
    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
 }
 
 
