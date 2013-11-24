@@ -419,11 +419,17 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     tableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    return sortedKeys;
+    NSMutableArray *searchSections = [[NSMutableArray alloc] initWithObjects:UITableViewIndexSearch, nil];
+    [searchSections addObjectsFromArray:sortedKeys];
+    return searchSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString
                                                                              *)title atIndex:(NSInteger)index {
+    if (index == 0) {
+        [tableView setContentOffset:CGPointMake(0.0, -tableView.contentInset.top)];
+        return NSNotFound;
+    }
     return index;
 }
 
