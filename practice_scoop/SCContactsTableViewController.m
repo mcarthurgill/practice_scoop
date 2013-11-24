@@ -408,6 +408,7 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+
     CGRect barFrame = self.searchBar.frame;
     barFrame.size.width = self.view.bounds.size.width;
     self.searchBar.frame = barFrame;
@@ -419,9 +420,11 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     tableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    NSMutableArray *searchSections = [[NSMutableArray alloc] initWithObjects:UITableViewIndexSearch, nil];
-    [searchSections addObjectsFromArray:sortedKeys];
-    return searchSections;
+// The code below adds a small search bar icon at the top of the index list. 
+//    NSMutableArray *searchSections = [[NSMutableArray alloc] initWithObjects:UITableViewIndexSearch, nil];
+//    [searchSections addObjectsFromArray:sortedKeys];
+//    return searchSections;
+    return sortedKeys;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString
