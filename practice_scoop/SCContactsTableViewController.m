@@ -406,8 +406,25 @@
    
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    CGRect barFrame = self.searchBar.frame;
+    barFrame.size.width = self.view.bounds.size.width;
+    self.searchBar.frame = barFrame;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    return sortedKeys;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString
+                                                                             *)title atIndex:(NSInteger)index {
+    return index;
 }
 
 
