@@ -7,6 +7,7 @@
 //
 
 #import "SCContactsTableViewController.h"
+#import "NSString+URLEncoding.h"
 
 @interface SCContactsTableViewController ()
 
@@ -111,7 +112,13 @@
       
       if (ABMultiValueGetCount(multi)){
          ++count;
-         phone = (__bridge NSString*)ABMultiValueCopyValueAtIndex(multi, 0);
+          
+          NSMutableDictionary *phone = [[NSMutableDictionary alloc] init];
+         
+          for ( int i = 0; i < ABMultiValueGetCount(multi); i++ ) {
+              [phone setObject:@"phone" forKey:[self removeNonNumerics:(__bridge NSString*)(ABMultiValueCopyValueAtIndex(multi,i))]];
+          }
+
          if ([alphabet objectForKey:[firstLetter uppercaseString]]) {
             ++foundFirstLetter;
             NSMutableDictionary *contact = [[NSMutableDictionary alloc] init];
@@ -128,6 +135,7 @@
                [contact setObject:phone forKey:@"phone"];
             }
             [self addDictionary:contact toSortedArray:[alphabet objectForKey:firstLetter]];
+             NSLog(@"contact : %@", contact );
          }
       }
    }
@@ -154,6 +162,13 @@
    [self setContacts:contacts andKeys:sortedKeys forKey:@"-"];
    [self reloadContacts];
    
+}
+
+-(NSString *)removeNonNumerics:(NSString *)phone {
+    NSString *newString = [[phone componentsSeparatedByCharactersInSet:
+                            [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                           componentsJoinedByString:@""];
+    return newString;
 }
 
 -(NSMutableArray *)addDictionary:(NSDictionary *)contact toSortedArray:(NSMutableArray *)array
@@ -361,6 +376,7 @@
    [(UIImageView*) [[[tableView cellForRowAtIndexPath:indexPath] contentView] viewWithTag:2] setImage:[UIImage imageNamed:@"checked.png"]];
    
    NSLog(@"ADD TO SELECTED CONTACTS");
+    NSLog(@"contact : %@", c);
    [self addContactToSelected:c];
    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
    
